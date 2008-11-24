@@ -2,7 +2,7 @@
 Summary:	Ticket Comments Change Plugin
 Name:		trac-plugin-ticketchange
 Version:	0
-Release:	0.1
+Release:	0.2
 License:	BSD-like
 Group:		Applications/WWW
 # Source0Download:	http://trac-hacks.org/changeset/latest/ticketchangeplugin?old_path=/&filename=ticketchangeplugin&format=zip
@@ -10,7 +10,6 @@ Source0:	ticketchangeplugin.zip
 # Source0-md5:	7c21c57730434992bf0e7aca47fdaa0c
 URL:		http://trac-hacks.org/wiki/TicketChangePlugin
 BuildRequires:	python-devel
-Requires:	python-ldap
 Requires:	trac >= %{trac_ver}
 Requires:	trac-plugin-ticketdelete
 BuildArch:	noarch
@@ -39,6 +38,17 @@ cd %{trac_ver}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+if [ "$1" = "1" ]; then
+	%banner -e %{name} <<-'EOF'
+	Don't forget to enable ticketdelete in conf/trac.ini:
+
+	[components]
+	ticketchange.* = enabled
+EOF
+#' - vim
+fi
 
 %files
 %defattr(644,root,root,755)
