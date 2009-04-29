@@ -2,7 +2,7 @@
 Summary:	Change ticket comments in Trac
 Name:		trac-plugin-ticketchange
 Version:	0.0.4
-Release:	1
+Release:	3
 License:	BSD
 Group:		Applications/WWW
 # svn export http://trac-hacks.org/svn/ticketchangeplugin/0.11 ticketchangeplugin
