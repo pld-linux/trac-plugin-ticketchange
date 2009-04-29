@@ -1,9 +1,9 @@
-%define		trac_ver	0.10
-Summary:	Ticket Comments Change Plugin
+%define		trac_ver	0.11
+Summary:	Change ticket comments in Trac
 Name:		trac-plugin-ticketchange
 Version:	0.0.4
-Release:	1
-License:	BSD-like
+Release:	2
+License:	BSD
 Group:		Applications/WWW
 # Source0Download:	http://trac-hacks.org/changeset/latest/ticketchangeplugin?old_path=/&filename=ticketchangeplugin&format=zip
 Source0:	ticketchangeplugin.zip
@@ -16,7 +16,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Ticket Comments Change Plugin.
+Provides a web interface to change ticket comments in Trac.
 
 %prep
 %setup -q -n ticketchangeplugin
