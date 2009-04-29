@@ -2,15 +2,15 @@
 Summary:	Change ticket comments in Trac
 Name:		trac-plugin-ticketchange
 Version:	0.0.4
-Release:	2
+Release:	1
 License:	BSD
 Group:		Applications/WWW
-# Source0Download:	http://trac-hacks.org/changeset/latest/ticketchangeplugin?old_path=/&filename=ticketchangeplugin&format=zip
-Source0:	ticketchangeplugin.zip
-# Source0-md5:	7c21c57730434992bf0e7aca47fdaa0c
+# svn export http://trac-hacks.org/svn/ticketchangeplugin/0.11 ticketchangeplugin
+Source0:	ticketchangeplugin.tar.bz2
+# Source0-md5:	2ba34c00b96da755230a9c7916fe575e
 URL:		http://trac-hacks.org/wiki/TicketChangePlugin
 BuildRequires:	python-devel
-Requires:	trac >= %{trac_ver}
+Requires:	trac = %{trac_ver}
 Requires:	trac-plugin-ticketdelete
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
