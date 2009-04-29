@@ -1,8 +1,8 @@
 %define		trac_ver	0.10
 Summary:	Ticket Comments Change Plugin
 Name:		trac-plugin-ticketchange
-Version:	0
-Release:	2
+Version:	0.0.4
+Release:	1
 License:	BSD-like
 Group:		Applications/WWW
 # Source0Download:	http://trac-hacks.org/changeset/latest/ticketchangeplugin?old_path=/&filename=ticketchangeplugin&format=zip
