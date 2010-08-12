@@ -1,8 +1,8 @@
-%define		trac_ver	0.11
+%define		trac_ver	0.12
 Summary:	Change ticket comments in Trac
 Name:		trac-plugin-ticketchange
 Version:	0.0.4
-Release:	5
+Release:	6
 License:	BSD
 Group:		Applications/WWW
 # svn export http://trac-hacks.org/svn/ticketchangeplugin/0.11 ticketchangeplugin
@@ -22,13 +22,11 @@ Provides a web interface to change ticket comments in Trac.
 %setup -q -n ticketchangeplugin
 
 %build
-cd %{trac_ver}
 %{__python} setup.py build
 %{__python} setup.py egg_info
 
 %install
 rm -rf $RPM_BUILD_ROOT
-cd %{trac_ver}
 %{__python} setup.py install \
 	--single-version-externally-managed \
 	--optimize 2 \
