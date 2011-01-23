@@ -10,6 +10,9 @@ Source0:	ticketchangeplugin.tar.bz2
 # Source0-md5:	2ba34c00b96da755230a9c7916fe575e
 URL:		http://trac-hacks.org/wiki/TicketChangePlugin
 BuildRequires:	python-devel
+BuildRequires:	python-modules
+BuildRequires:	python-setuptools
+BuildRequires:	rpm-pythonprov
 Requires:	trac = %{trac_ver}
 Requires:	trac-plugin-ticketdelete
 BuildArch:	noarch
