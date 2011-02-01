@@ -1,19 +1,20 @@
 %define		trac_ver	0.12
+%define		plugin		ticketchange
 Summary:	Change ticket comments in Trac
-Name:		trac-plugin-ticketchange
+Name:		trac-plugin-%{plugin}
 Version:	0.0.4
-Release:	6
+Release:	7
 License:	BSD
 Group:		Applications/WWW
-# svn export http://trac-hacks.org/svn/ticketchangeplugin/0.11 ticketchangeplugin
-Source0:	ticketchangeplugin.tar.bz2
-# Source0-md5:	2ba34c00b96da755230a9c7916fe575e
+Source0:	http://trac-hacks.org/changeset/latest/ticketchangeplugin?old_path=/&format=zip#/%{plugin}-%{version}.zip
+# Source0-md5:	f59788ca5f34354c0126f05d890862a7
 URL:		http://trac-hacks.org/wiki/TicketChangePlugin
 BuildRequires:	python-devel
 BuildRequires:	python-modules
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
-Requires:	trac = %{trac_ver}
+BuildRequires:	rpmbuild(macros) >= 1.595
+Requires:	trac >= %{trac_ver}
 Requires:	trac-plugin-ticketdelete
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -22,7 +23,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides a web interface to change ticket comments in Trac.
 
 %prep
-%setup -q -n ticketchangeplugin
+%setup -qc
+mv %{plugin}plugin/0.11/* .
 
 %build
 %{__python} setup.py build
@@ -41,15 +43,13 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ "$1" = "1" ]; then
-	%banner -e %{name} <<-'EOF'
-	Don't forget to enable ticketdelete in conf/trac.ini:
+%banner -o -e %{name} <<-'EOF'
+Don't forget to enable ticketdelete in conf/trac.ini:
 
-	[components]
-	ticketchange.* = enabled
+[components]
+ticketchange.* = enabled
 EOF
-#' - vim
-fi
+#'vim
 
 %files
 %defattr(644,root,root,755)
