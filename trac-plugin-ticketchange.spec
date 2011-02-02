@@ -14,6 +14,7 @@ BuildRequires:	python-modules
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.595
+BuildRequires:	unzip
 Requires:	trac >= %{trac_ver}
 Requires:	trac-plugin-ticketdelete
 BuildArch:	noarch
